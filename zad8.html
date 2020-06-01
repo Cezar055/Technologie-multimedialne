@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Zadanie 8</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        .container {
+            height: 500px;
+            width: 500px;
+            background-color: blue;
+        }
+
+        .box {
+            height: 300px;
+            width: 500px;
+        }
+
+        .container,
+        .in {
+            position: relative;
+        }
+
+        .in {
+            height: 100px;
+            width: 100px;
+        }
+
+        .up,
+        .down {
+            display: none;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <div style="background-color: red" class="in">1<button class="up">Góra</button><button
+                    class="down">Dół</button></div>
+            <div style="background-color: green" class="in">2<button class="up">Góra</button><button
+                    class="down">Dół</button></div>
+            <div style="background-color: yellow" class="in">3<button class="up">Góra</button><button
+                    class="down">Dół</button></div>
+        </div>
+
+    </div>
+    <button class="go">Rozpocznij</button>
+
+    <script>
+        var position = 'left'
+        const left = { left: '400px' }
+        const right = { left: '0px' }
+        $('.go').click(function () {
+            $('.in').each(function (i) {
+                if (position == 'left') {
+                    $(this).delay(i * 1000).animate(left, '1000');
+                } else {
+                    $(this).delay(i * 1000).animate(right, '1000');
+                }
+            })
+            position = (position == 'left') ? 'right' : 'left'
+        });
+
+        $('.in').hover(
+            function () {
+                $(this).children().show()
+            }, function () {
+                $(this).children().hide()
+            }
+        );
+        $('.up').on('click', function () {
+            var clickedButton = $(this).parent();
+            console.log($(this).text());
+            clickedButton.insertBefore(clickedButton.prev());
+        });
+        $('.down').on('click', function (e) {
+            var clickedButton = $(this).parent('.in')
+            clickedButton.insertAfter(clickedButton.next())
+        })
+
+    </script>
+
+</body>
+
+</html>

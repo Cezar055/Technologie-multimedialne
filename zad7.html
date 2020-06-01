@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Zadanie 7</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        .container {
+            height: 500px;
+            width: 500px;
+            background-color: blue;
+        }
+
+        .container,
+		.div1{
+		position: relative;
+		}
+        .div1 {
+            height: 100px;
+            width: 100px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="div1"></div>
+        <div class="div1"></div>
+        <div class="div1"></div>
+    </div>
+    <button>Go!</button>
+
+    <script>
+        var position = 'left'
+        const left = { left: '400px' }
+        const right = { left: '0px' }
+        $('button').click(function () {
+            $('.div1').each(function (i) {
+                if (position == 'left') {
+                    $(this).delay(i * 1000).animate(left, '1000');
+                } else {
+                    $(this).delay(i * 1000).animate(right, '1000');
+                }
+            })
+            position = (position == 'left') ? 'right' : 'left'
+        })
+    </script>
+</body>
+
+</html>

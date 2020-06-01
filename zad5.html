@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Zadanie 5</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <textarea maxlength="300" required></textarea>
+    <button>Przelacz tekst z textarea do div</button>
+    <div></div>
+    <script>
+        $('button').click(function () {
+            var zmienna = $('textarea').val();
+            $('textarea').val('');
+            $('div').text(zmienna);
+        });
+    </script>
+</body>
+
+</html>
