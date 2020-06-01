@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Zadanie 4</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .container {
+            position: relative;
+            height: 600px;
+            width: 500px;
+            background-color: blue;
+        }
+
+        .kolumna {
+            position: absolute;
+            bottom: 0;
+            width: 100px;
+            height: 0px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="kolumna"></div>
+    </div>
+    <input style="width: 40px;" type='number' min='1' max='10' />
+    <button>Start</button>
+    <script>
+
+        $('button').click(function () {
+            const inputVal = $('input').val();
+            $('.kolumna').animate({
+                position: 'absolute',
+                height: '500px'
+            }, parseInt(inputVal) * 500);
+        });
+    </script>
+</body>
+</html>

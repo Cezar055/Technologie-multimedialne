@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta charset="utf-8">
+    <title>Zadanie 2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#rozwin").click(function () {
+                $("#panel").slideToggle("3000");
+            });
+        });
+    </script>
+    <style>
+        #panel,
+        #rozwin {
+            padding: 5px;
+            text-align: center;
+            background-color: yellow;
+            border: solid 1px yellow;
+        }
+        #panel {
+            padding: 40px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="rozwin">Naciśnij aby rozwinąć w dół lub góre</div>
+    <div id="panel">Rozwinięty panel</div>
+
+</body>
+</html>
